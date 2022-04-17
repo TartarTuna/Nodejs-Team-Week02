@@ -25,8 +25,8 @@ const reqListener = async (req, res) => {
   if (url === '/post' && method === 'POST') {
     req.on('end', async () => {
       try {
-        const { userName, userPhoto } = JSON.parse(body);
-        const post = await Post.create({ userName, userPhoto });
+        const { userName, userPhoto, imageUrl, content } = JSON.parse(body);
+        const post = await Post.create({ userName, userPhoto, imageUrl, content });
         res.writeHead(200, header);
         res.write(
           JSON.stringify({
