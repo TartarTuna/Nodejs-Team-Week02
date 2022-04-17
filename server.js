@@ -1,8 +1,10 @@
 const http = require('http');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const header = require('./header');
 const Post = require('./models/post');
 require('dotenv').config();
+dotenv.config({ path: './.env' });
 
 mongoose
   .connect(process.env.DATABASE_URL)
@@ -44,6 +46,18 @@ const reqListener = async (req, res) => {
         res.end();
       }
     });
+  }
+  //取得全部貼文
+  else if (url === '/post' && method === 'GET') {
+    const posts = await Post.find();
+    res.writeHead(200, header);
+    res.write(
+      JSON.stringify({
+        status: 'success',
+        data: posts,
+      })
+    );
+    res.end();
   }
   // 預檢請求
   else if (method === 'OPTIONS') {
