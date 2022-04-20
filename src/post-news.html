@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>張貼動態</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;700&family=Baloo+Da+2&family=Noto+Sans+TC:wght@400;700&family=Paytone+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/solid.min.css"
+      integrity="sha512-qzgHTQ60z8RJitD5a28/c47in6WlHGuyRvMusdnuWWBB6fZ0DWG/KyfchGSBlLVeqAz+1LzNq+gGZkCSHnSd3g=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/regular.min.css"
+      integrity="sha512-YoxvmIzlVlt4nYJ6QwBqDzFc+2aXL7yQwkAuscf2ZAg7daNQxlgQHV+LLRHnRXFWPHRvXhJuBBjQqHAqRFkcVw=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css"
+      integrity="sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../dist/css/tailwind.css" />
+  </head>
+  <body>
+    <header class="border-b-[3px] border-black-100">
+      <div
+        class="flex justify-between px-4 lg:mx-auto lg:max-w-[869px] lg:px-0"
+      >
+        <h1>
+          <a
+            class="block py-4 font-paytone text-2xl leading-[34px] text-black-100 lg:py-3 lg:text-[26px] lg:leading-[36px]"
+            href="dynamic-wall.html"
+            >MetaWall</a
+          >
+        </h1>
+        <div class="group flex items-center py-4 lg:relative lg:py-3">
+          <img
+            src="../static/images/dynamic-wall/user.png"
+            alt="avatar"
+            class="mr-[10px] h-[30px] w-[30px] flex-shrink-0 object-cover"
+          />
+          <div
+            class="border-b-2 border-black-100 px-1 pb-1 font-azeret font-bold leading-[19px] text-black-100"
+          >
+            Member
+          </div>
+          <div
+            class="hidden lg:absolute lg:-left-1 lg:top-[calc(100%-8px)] lg:isolate lg:w-[182px] lg:group-hover:block"
+          >
+            <div
+              class="absolute top-2 left-2 z-[-1] h-full w-full border-2 border-black-100 bg-white"
+            ></div>
+            <ul
+              class="divide-y-2 divide-black-100 border-2 border-black-100 bg-white text-center text-black-100"
+            >
+              <li>
+                <a href="./personal-wall.html" class="block py-2 hover:bg-[#EFECE7]">我的貼文牆</a>
+              </li>
+              <li>
+                <a
+                  href="./modify-personal-info.html"
+                  class="block py-2 hover:bg-[#EFECE7]"
+                  >修改個人資料</a
+                >
+              </li>
+              <li>
+                <a href="./login.html" class="block py-2 hover:bg-[#EFECE7]"
+                  >登出</a
+                >
+              </li>
+            </ul>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main
+      class="px-3 pt-4 pb-[102px] lg:mx-auto lg:flex lg:max-w-[869px] lg:px-0 lg:py-[49px]"
+    >
+      <section class="lg:mr-[27px] lg:flex-grow">
+        <h2
+          class="relative mb-4 isolate after:absolute after:right-1 after:top-1 after:z-[-1] after:h-full after:w-full after:border-2 after:border-black-100 after:content-['']"
+        >
+          <div
+            class=" border-2 border-black-100 bg-white py-[18px] text-center font-azeret text-xl font-bold text-black-100"
+          >
+            張貼動態
+          </div>
+        </h2>
+        <form
+          action="./post-news.html"
+          method="post"
+          class="rounded-lg border-2 border-black-100 p-8 shadow-card"
+        >
+          <label for="content" class="mb-1 inline-block text-black-100"
+            >貼文內容</label
+          >
+          <textarea
+            class="mb-4 block min-h-[169px] w-full border-2 border-black-100 py-3 px-4"
+            placeholder="輸入您的貼文內容"
+          ></textarea>
+          <label
+            class="relative inline-block rounded bg-black-100 py-1 px-8 text-white"
+          >
+            <input type="file" class="sr-only" />
+            上傳圖片
+          </label>
+          <img
+            src="../static/images/dynamic-wall/post-photo@2x.png"
+            alt="post photo"
+            class="mt-4"
+          />
+          <p class="mt-8 text-center text-sm text-red-100 hidden" data-id="error">圖片檔案過大，僅限 1mb 以下檔案<br />圖片格式錯誤，僅限 JPG、PNG 圖片</p>
+          <input
+            type="button"
+            class="mx-auto mt-8 block cursor-pointer w-[68.86%] rounded-lg border-2 border-black-100 bg-gray-200 font-azeret font-bold leading-[50px] text-black-100 hover:bg-yellow-100 hover:shadow-btn"
+            value="送出貼文"
+          >
+          </input>
+        </form>
+      </section>
+      <nav
+        class="fixed inset-x-0 bottom-4 px-2 lg:static lg:bottom-0 lg:w-[35.55%] lg:flex-shrink-0 lg:self-start lg:border-2 lg:border-black-100 lg:py-8 lg:px-6"
+      >
+        <a
+          href="./post-news.html"
+          class="hidden text-center shadow-btn lg:mb-6 lg:block lg:w-full lg:rounded-lg lg:border-2 lg:border-black-100 lg:bg-primary lg:font-azeret lg:font-bold lg:leading-[50px] lg:text-white lg:hover:bg-yellow-100 lg:hover:text-black-100"
+        >
+          張貼動態
+        </a>
+        <ul
+          class="flex justify-center space-x-[25px] rounded-[32px] border-[3px] border-black-100 bg-secondary py-2 lg:block lg:space-x-0 lg:space-y-[22px] lg:rounded-none lg:border-0 lg:bg-transparent lg:py-0"
+        >
+          <li class="lg:hidden">
+            <a
+              href="./dynamic-wall.html"
+              class="flex h-[48px] w-[48px] items-center justify-center rounded-full border-[3px] bg-white border-black-100 text-xl text-black-100 hover:bg-primary hover:text-white"
+            >
+              <i class="fa-solid fa-house"></i>
+            </a>
+          </li>
+          <li class="hidden lg:block">
+            <a
+              href="./personal-wall.html"
+              class="block text-black-100 hover:text-primary"
+            >
+              <img
+                src="../static/images/dynamic-wall/user.png"
+                alt="avatar"
+                class="mr-3 inline-block h-[50px] w-[50px] object-cover"
+              />
+              <span class="align-middle font-bold">邊緣小杰</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./track-list.html"
+              class="peer group block text-black-100 hover:text-primary"
+            >
+              <span
+                class="flex h-[48px] w-[48px] items-center bg-white justify-center rounded-full border-[3px] border-black-100 text-xl group-hover:bg-primary group-hover:text-white lg:mr-3 lg:inline-block lg:h-[50px] lg:w-[50px] lg:border-2 lg:bg-[#E2EDFA] lg:text-center lg:leading-[45px]"
+              >
+                <i class="fa-regular fa-bell"></i>
+              </span>
+              <span class="hidden font-bold lg:inline">追蹤名單</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./liked-posts.html"
+              class="group block text-black-100 hover:text-primary"
+            >
+              <span
+                class="flex h-[48px] w-[48px] items-center bg-white justify-center rounded-full border-[3px] border-black-100 text-xl group-hover:bg-primary group-hover:text-white lg:mr-3 lg:inline-block lg:h-[50px] lg:w-[50px] lg:border-2 lg:bg-[#E2EDFA] lg:text-center lg:leading-[45px]"
+              >
+                <i class="fa-regular fa-thumbs-up"></i>
+              </span>
+              <span class="hidden font-bold lg:inline">我按讚的文章</span>
+            </a>
+          </li>
+          <li class="lg:hidden">
+            <a
+              href="./post-news.html"
+              class="flex h-[48px] w-[48px] items-center justify-center rounded-full border-[3px] border-black-100 bg-primary text-xl text-white"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+    <script>
+      const btn = document.querySelector('input[type="button"]');
+      btn.addEventListener('click', e => {
+        const {target} = e
+        const errorElem = document.querySelector('[data-id="error"]');
+        target.classList.remove('mt-8')
+        target.classList.add('mt-4')
+        errorElem.classList.remove('hidden')
+      })
+    </script>
+  </body>
+</html>
