@@ -1,10 +1,13 @@
 async function postSubmit() {
-  console.log('234');
   //get post content
   const post = getPostData();
-  console.log(post, 'post');
   //send post
-  await createPost(post);
+  try {
+    const data = await createPost(post);
+  } catch (err) {
+    alert(err, 'err');
+  }
+  // window.location = 'personal-wall.html';
 }
 
 async function getFiles() {
@@ -30,27 +33,18 @@ async function getFiles() {
   }
 }
 
-function createPost(data) {
+async function createPost(data) {
   //建立文章
-  fetch('http://127.0.0.1:3005/post', {
-    method: 'POST',
-    body: JSON.stringify(data),
-  })
-    .then((response) => response.json())
-    .then((res) => {
-      console.log(res, 'res');
-      // if (res.result) {
-      //   clearPostData()
-      //   window.location = 'index.html'
-      // } else {
-      //   // 顯示 API 回傳的錯誤訊息
-      //   document.getElementById("apiError").style.display = "block";
-      //   document.getElementById("apiError").textContent = res.msg;
-      // }
-    })
-    .catch((err) => {
-      console.log(err, 'err');
-    });
+  return new Promise(async (resolve, reject) => {
+    await axios
+      .post('http://127.0.0.1:3005/post', data)
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
 }
 
 function getPostData() {
