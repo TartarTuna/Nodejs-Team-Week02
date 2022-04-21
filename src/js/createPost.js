@@ -3,7 +3,7 @@ async function postSubmit() {
   const post = getPostData();
   //send post
   try {
-    const data = await createPost(post);
+    await createPost(post);
   } catch (err) {
     alert(err, 'err');
   }
