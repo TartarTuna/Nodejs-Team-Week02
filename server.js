@@ -59,6 +59,25 @@ const reqListener = async (req, res) => {
     );
     res.end();
   }
+  // 取得最新貼文 & 關鍵字
+  else if (url.startsWith('/post/') && method === 'GET') {
+    const type = req.url.split('=').pop().split("?").shift()
+    const keyText = new RegExp(decodeURI(req.url.split('?').pop()))
+    let posts = ''
+    if( type == 'new'){
+      posts = await Post.find({'content': keyText }).sort({'createdAt': -1});
+    } else if(type == 'keyword'){
+      posts = await Post.find({'content': keyText});
+    } 
+    res.writeHead(200, header);
+    res.write(
+      JSON.stringify({
+        status: 'success',
+        data: posts,
+      })
+    );
+    res.end();
+  }
   // 預檢請求
   else if (method === 'OPTIONS') {
     res.writeHead(200, header);
