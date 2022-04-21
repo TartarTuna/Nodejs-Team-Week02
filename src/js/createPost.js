@@ -7,7 +7,7 @@ async function postSubmit() {
   } catch (err) {
     alert(err, 'err');
   }
-  // window.location = 'personal-wall.html';
+  window.location = 'dynamic-wall.html';
 }
 
 async function getFiles() {
@@ -54,7 +54,9 @@ function getPostData() {
     //userPhoto目前尚無線上版，先用照片代替代替
     // userPhoto: document.getElementById('userPhoto').src,
     userPhoto: 'http://dummyimage.com/140x100.png/5fa2dd/ffffff',
-    imageUrl: document.getElementById('imageInput').value,
+    //imageUrl目前尚無線上版，先用照片代替代替
+    imageUrl: 'http://dummyimage.com/140x100.png/5fa2dd/ffffff',
+    // imageUrl: document.getElementById('imageInput').value,
     content: document.getElementById('postContent').value,
   };
   return post;
