@@ -6,8 +6,13 @@ const Post = require('./models/post');
 require('dotenv').config();
 dotenv.config({ path: './.env' });
 
+const DB = process.env.DATABASE.replace(
+  '<password>',
+  process.env.DATABASE_PASSWORD
+)
+
 mongoose
-  .connect(process.env.DATABASE_URL)
+  .connect(DB)
   .then(() => {
     console.log('資料庫連線成功');
   })
