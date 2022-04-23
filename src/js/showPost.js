@@ -1,6 +1,6 @@
 
 // 預設貼文
-showPost("http://127.0.0.1:3005/post")
+showPost("https://stormy-eyrie-25230.herokuapp.com/post")
 
 // 下拉選單
 var searchBtn = document.getElementById("searchBtn")
@@ -66,8 +66,8 @@ return template
 function queryType(e){
   let type = document.getElementById("postType").value
   let keyText = document.getElementById("keyText").value
-  let url = 'http://127.0.0.1:3005/post/queryType=' + type + '?' + keyText;
-  if( type ==='default') url ='http://127.0.0.1:3005/post'
+  let url = 'https://stormy-eyrie-25230.herokuapp.com/post/queryType=' + type + '?' + keyText;
+  if( type ==='default') url ='https://stormy-eyrie-25230.herokuapp.com/post'
   showPost(url) 
 }
 

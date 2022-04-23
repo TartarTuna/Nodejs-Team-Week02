@@ -37,7 +37,7 @@ async function createPost(data) {
   //建立文章
   return new Promise(async (resolve, reject) => {
     await axios
-      .post('http://127.0.0.1:3005/post', data)
+      .post('https://stormy-eyrie-25230.herokuapp.com/post', data)
       .then((data) => {
         resolve(data);
       })
